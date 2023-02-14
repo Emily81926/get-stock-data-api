@@ -1,9 +1,13 @@
+const stockDataService = require("../services/stockDataService");
+
 const stockDataController = {
   getStockData: async (req, res) => {
     try {
-      return res.status(200).send("This is a stock api server");
+      await stockDataService.getData(req, res, (data) => {
+        return res.status(200).json({ result: data.result });
+      });
     } catch (error) {
-      return res.status(400)
+      return res.status(500).json("cannot fetch the data");
     }
   },
 };

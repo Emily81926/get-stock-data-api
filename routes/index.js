@@ -1,8 +1,7 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 const stockDataController = require("../controllers/stockDataController");
 
-router.get("/", stockDataController.getStockData);
+router.get("/data", stockDataController.getStockData);
 
-
-module.exports = router
+module.exports = router;
